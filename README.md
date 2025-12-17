@@ -83,6 +83,55 @@ Sistem manajemen armada kendaraan yang komprehensif dengan fitur administrasi da
    npm run dev
    ```
 
+## Cara Menjalankan Aplikasi
+
+### Development Mode
+Untuk menjalankan aplikasi dalam mode pengembangan:
+
+1. Jalankan server PHP Laravel:
+   ```bash
+   php artisan serve
+   ```
+
+2. Jalankan development server Vite (untuk hot reload CSS/JS):
+   ```bash
+   npm run dev
+   ```
+
+Aplikasi akan berjalan di `http://localhost:8000`
+
+### Production Mode
+Untuk menjalankan aplikasi di lingkungan produksi:
+
+1. Build asset untuk produksi:
+   ```bash
+   npm run build
+   ```
+
+2. Pastikan server web (Apache/Nginx) mengarah ke direktori `public/`
+
+### Migrasi dan Seeder
+Untuk menjalankan migrasi dan seed data dummy:
+```bash
+php artisan migrate:fresh --seed
+```
+
+Untuk me-reset data dan menjalankan migrasi ulang:
+```bash
+php artisan migrate:refresh --seed
+```
+
+### Testing
+Untuk menjalankan unit tests:
+```bash
+php artisan test
+```
+
+Atau dengan phpunit langsung:
+```bash
+./vendor/bin/phpunit
+```
+
 ## Struktur Pengguna
 
 - **Admin**: Pengguna dengan akses penuh untuk semua fitur sistem
