@@ -16,7 +16,13 @@
                 placeholder="John Doe"
             />
             @error('name')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -31,7 +37,13 @@
                 placeholder="email@example.com"
             />
             @error('email')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -47,7 +59,13 @@
                 viewable
             />
             @error('password')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -63,7 +81,13 @@
                 viewable
             />
             @error('password_confirmation')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -80,7 +104,13 @@
                 :default="'employee'"
             />
             @error('role')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -94,7 +124,13 @@
                 placeholder="Software Engineer"
             />
             @error('position')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -108,7 +144,13 @@
                 placeholder="Engineering"
             />
             @error('department')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -122,7 +164,13 @@
                 placeholder="+1234567890"
             />
             @error('phone')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 

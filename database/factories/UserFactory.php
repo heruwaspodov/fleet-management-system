@@ -91,4 +91,12 @@ class UserFactory extends Factory
             'two_factor_confirmed_at' => null,
         ]);
     }
+
+    /**
+     * Set the user without two factor authentication (alternative method name)
+     */
+    public function withoutTwoFactorAuthentication(): static
+    {
+        return $this->withoutTwoFactor();
+    }
 }

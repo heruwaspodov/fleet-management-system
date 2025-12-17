@@ -19,7 +19,13 @@
                 placeholder="email@example.com"
             />
             @error('email')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
@@ -35,7 +41,13 @@
                 viewable
             />
             @error('password')
-                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">{{ $message }}</flux:label>
+                <flux:label class="text-red-600 dark:text-red-400 text-sm mt-1">
+                    @if(is_array($message))
+                        {{ implode(', ', $message) }}
+                    @else
+                        {{ $message }}
+                    @endif
+                </flux:label>
             @enderror
         </flux:field>
 
