@@ -83,7 +83,8 @@ class Dashboard extends Component
         $this->vehicleUsageChart = $vehicleUsage;
 
         // Prepare monthly booking data for current year
-        $driverName = (new Booking())->getConnection()->getDriverName();
+        $connection = (new Booking())->getConnection();
+        $driverName = $connection->getDriverName();
 
         if ($driverName === 'pgsql') {
             // For PostgreSQL, use EXTRACT function
@@ -93,6 +94,18 @@ class Dashboard extends Component
             )
             ->whereYear('created_at', now()->year)
             ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+            ->orderBy('month')
+            ->get()
+            ->pluck('count', 'month')
+            ->toArray();
+        } elseif ($driverName === 'sqlite') {
+            // For SQLite, use strftime function
+            $this->monthlyBookings = Booking::select(
+                DB::raw("strftime('%m', created_at) as month"),
+                DB::raw('COUNT(*) as count')
+            )
+            ->whereYear('created_at', now()->year)
+            ->groupBy(DB::raw("strftime('%m', created_at)"))
             ->orderBy('month')
             ->get()
             ->pluck('count', 'month')
