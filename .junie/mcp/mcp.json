@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "/Users/wspdv/.config/herd-lite/bin/php",
+            "args": [
+                "/Users/wspdv/Works/fleet-management-system/artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
