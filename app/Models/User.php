@@ -120,4 +120,29 @@ class User extends Authenticatable
         // Ambil hanya 2 karakter pertama
         return substr($initials, 0, 2);
     }
+
+    /**
+     * Determine if two-factor authentication has been enabled.
+     */
+    public function hasEnabledTwoFactorAuthentication(): bool
+    {
+        return ! is_null($this->two_factor_secret);
+    }
+
+    /**
+     * Determine if two-factor authentication is confirmed.
+     */
+    public function hasConfirmedTwoFactorAuthentication(): bool
+    {
+        return ! is_null($this->two_factor_confirmed_at);
+    }
+
+    /**
+     * Determine if the user is eligible for two factor authentication.
+     */
+    public function twoFactorConfimationEligible(): bool
+    {
+        return $this->hasEnabledTwoFactorAuthentication() &&
+               $this->hasConfirmedTwoFactorAuthentication();
+    }
 }
