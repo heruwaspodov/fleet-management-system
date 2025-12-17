@@ -164,7 +164,7 @@
                         <div class="w-16 text-sm text-gray-500 dark:text-gray-400">{{ $day['day'] }}</div>
                         <div class="flex-1">
                             <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-                                <div class="bg-indigo-600 h-4 rounded-full text-center text-xs text-white" style="width: {{ max($day['count'] * 10, 1) }}%">
+                                <div class="bg-indigo-600 h-4 rounded-full text-center text-xs text-white" style="width: {{ min($day['count'] * 5, 100) }}%">
                                     {{ $day['count'] }}
                                 </div>
                             </div>
